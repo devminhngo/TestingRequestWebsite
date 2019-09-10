@@ -1,0 +1,159 @@
+mat-expansion-panel {
+  background-color: #fff;
+}
+
+mat-panel-title {
+  font-weight: bold;
+}
+
+mat-card-title {
+text-align: center;
+text-transform: uppercase;
+}
+
+.mat-dialog-content {
+  padding-bottom: 182px;
+}
+
+.mat-dialog-content-inline {
+  display: inline;
+}
+
+.mat-dialog-content-block {
+  display: block;
+}
+
+.mat-card{
+box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
+}
+
+table {
+border-collapse: collapse;
+width: 100%;
+}
+
+th{
+background-color: #FF3636;
+color: #fff;
+font-weight: 500;
+}
+
+th, td {
+text-align: left;
+padding: 8px;
+border-bottom: 1px solid #ddd;
+border-top: 1px solid #ddd;
+}
+
+.mat-icon{
+color: #A9A9A9;
+}
+
+tr:nth-child(odd) {background-color: #f2f2f2;}
+
+hr { 
+display: block;
+margin-top: 1em;
+margin-bottom: 1em;
+margin-left: auto;
+margin-right: auto;
+border-style: inset;
+border-color: #ddd;
+color: #ddd;
+background-color: #ddd;
+height: 1px;
+border: 0;
+}
+
+.noshadow {
+-webkit-box-shadow: none;
+-moz-box-shadow: none;
+box-shadow: none;
+}
+
+.task-header{
+background-color: #FF3636;
+color: #fff;
+padding: 20px;
+}
+
+.clicktoadd{
+text-align: right;
+padding: 10px;
+}
+
+.clicktoadd a {
+color: #606060;
+text-decoration: none; /* no underline */
+}
+
+.approvedenybuttons {
+  width: 100%;
+  margin-top: 16px;
+}
+
+.approvebutton {
+  display: block;
+  background-color: #FF9136;
+  color: #fff;
+  width: 100%;
+  max-width: 90px;
+  float: right;
+}
+
+.denyallbutton {
+  display: block;
+  background-color: #FF3636;
+  color: #fff;
+  width: 100%;
+  max-width: 110px;
+  float: right;
+  margin-left: 5px;
+}
+
+.approveallbutton {
+  display: block;
+  background-color: #882D60;
+  color: #fff;
+  width: 100%;
+  max-width: 110px;
+  float: right;
+}
+
+.denybutton {
+  display: block;
+  background-color: #FF3636;
+  color: #fff;
+  width: 100%;
+  max-width: 90px;
+  float: right;
+  margin-left: 5px;
+}
+
+.confirmDenyAll {
+  display: block;
+  background-color: #FF3636;
+  color: #fff;
+  width: 100%;
+}
+
+.denyBox {
+  height: 100px;
+  width: 100%;
+  background-color: rgb(255, 228, 234);
+}
+
+.deniedstatus{
+  color: #FF3636;
+  text-transform: uppercase;
+}
+
+.approvedstatus{
+  color: #FF9136;
+  text-transform: uppercase;
+}
+
+.requestedstatus{
+  color: #606060;
+  text-transform: uppercase;
+}

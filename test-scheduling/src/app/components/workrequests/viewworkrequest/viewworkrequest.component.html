@@ -1,0 +1,136 @@
+<div *ngIf="viewbackbutton">
+<button mat-flat-button color="warn" (click)="goBack()">Back</button>
+<br><br></div>
+
+<mat-dialog-content [ngStyle]="{'display':viewbackbutton ? 'inline' : 'block'}">
+<mat-card>
+  <div class="task-header">
+    <mat-card-title>Work Request: {{ workRequest._id }} ({{ workRequest.status }})</mat-card-title>
+    </div>
+    <mat-expansion-panel class="noshadow" [expanded]="true">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            Work Request:
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div>
+          <table>
+              <tr>
+                <td width="25%">Test Location:</td>
+                <td>{{ workRequest.testlocation }}</td>
+              </tr>
+              <tr>
+                <td width="25%">Work Requestor/Owner:</td>
+                <td>{{ workRequest.requestor }}</td>
+              </tr>
+              <tr>
+                <td width="25%">Request - Driver:</td>
+                <td>{{ workRequest.driver }}</td>
+              </tr>
+              <tr>
+                <td width="25%">Charge Code:</td>
+                <td>{{ workRequest.chargecode }}</td>
+              </tr>
+              <tr>
+                <td width="25%">Request Description:</td>
+                <td>{{ workRequest.description }}</td>
+              </tr>
+              <tr>
+                <td width="25%">Comments:</td>
+                <td>{{ workRequest.requestcomments }}</td>
+              </tr>
+            </table>
+            <div class="approvedenybuttons">
+                <button mat-flat-button class="denyallbutton" (click)="denyAllBox = true" *ngIf="denyAllBox == false">Deny All</button>
+                <button mat-flat-button class="approveallbutton" (click)="approveall(); denyAllBox = false">Approve All</button>
+            </div>
+            <div *ngIf="denyAllBox == true">
+              <br><br>
+              <button mat-flat-button class="confirmDenyAll" (click)="denyall(denyAllReason.value)">Confirm Deny All</button>
+                <textarea #denyAllReason matInput placeholder="Reason for Denial" class="denyBox" required></textarea>
+            </div>
+      </div>
+    </mat-expansion-panel>
+
+    <div *ngIf="areTasksAvailable">
+    <div *ngFor="let task of tasks; let i = index">
+
+        <mat-divider [inset]="true"></mat-divider>
+
+        <mat-expansion-panel class="noshadow" [expanded]="true">
+            <mat-expansion-panel-header>
+              <mat-panel-title>
+                  Task # {{(i + 1)}} - {{task.id}} -<div [ngClass]="{'requestedstatus': task.status =='requested', 'deniedstatus': task.status =='denied', 'approvedstatus': task.status =='approved'}">&nbsp;{{ task.status }}</div>
+              </mat-panel-title>
+            </mat-expansion-panel-header>
+            <div>
+                <table>
+                    <tr>
+                        <td width="25%">Task ID:</td>
+                        <td><a [routerLink]="['/viewtask', task._id]" (click)="closeDialog();" routerLinkActive="router-link-active">{{ task._id }}</a></td>
+                      </tr>
+                    <tr>
+                      <td width="25%">Task Status:</td>
+                      <td>{{ task.status }}</td>
+                    </tr>
+                    <tr>
+                      <td width="25%">Tool:</td>
+                      <td>{{ task.tool }}</td>
+                    </tr>
+                    <tr>
+                      <td width="25%">Resource:</td>
+                      <td>{{ task.resource }}</td>
+                    </tr>
+                    <tr>
+                      <td width="25%">Test Duration:</td>
+                      <td>{{ task.duration }} Hours</td>
+                    </tr>
+                    <tr>
+                      <td width="25%">Test Contact:</td>
+                      <td>{{ task.testContact }}</td>
+                    </tr>
+                    <tr>
+                      <td width="25%">Priority:</td>
+                      <td>{{ task.companyPSL }}</td>
+                    </tr>
+                    <tr>
+                      <td width="25%">Group:</td>
+                      <td>{{ task.group }}</td>
+                    </tr>
+                    <tr>
+                      <td width="25%">Test Description: </td>
+                      <td>{{ task.testDescription }}</td>
+                    </tr>
+                    <tr>
+                      <td width="25%">Start Date:</td>
+                      <td width="25%">{{ task.startdate.toString() }}</td>
+                    </tr>
+                    <tr>
+                      <td width="25%">End Date:</td>
+                      <td width="25%">{{ task.enddate }}</td>
+                    </tr>
+                  </table>
+                  <mat-expansion-panel class="noshadow" [expanded]="false">
+                      <mat-expansion-panel-header style="padding-left: 8px;">
+                          <mat-panel-title style="font-weight: 500;">
+                              Click here to view data.
+                          </mat-panel-title>
+                      </mat-expansion-panel-header>
+                      <app-real-time-data-graph></app-real-time-data-graph>
+                  </mat-expansion-panel>
+                  <div class="approvedenybuttons">
+                      <button mat-flat-button class="denybutton" (click)="denyBox = true" *ngIf="denyBox == false && task.deniedReason?.length == undefined">Deny</button>
+                      <button mat-flat-button class="approvebutton" (click)="approve(task._id, i);">Approve</button>
+                  </div>
+                  <div *ngIf="denyBox == true || task.deniedReason?.length > 0">
+                    <br><br>
+                    <button mat-flat-button class="confirmDenyAll" (click)="deny(task._id, i, denyReason.value)">Confirm</button>
+                    <textarea #denyReason matInput placeholder="Reason for Denial" class="denyBox" required>{{task.deniedReason}}</textarea>
+                  </div>
+            </div>
+          </mat-expansion-panel>
+    </div>
+    </div>
+
+</mat-card>
+</mat-dialog-content>

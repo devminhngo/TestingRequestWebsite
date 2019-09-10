@@ -1,0 +1,23 @@
+.mat-card{
+    margin-right: 20px;
+    height: inherit;
+    margin-bottom: 20px;
+}
+
+.mat-card-wide{
+    height: inherit;
+}
+
+.mat-card-header-lg {
+    background-color: #FF3636;
+    padding-top: 10px;
+    color: #fff;
+    margin-bottom: 10px;
+}
+
+.mat-card-header-sm {
+    background-color: #FF9136;
+    padding-top: 10px;
+    color: #fff;
+    margin-bottom: 10px;
+}

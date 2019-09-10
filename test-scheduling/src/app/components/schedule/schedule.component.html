@@ -1,0 +1,39 @@
+<mat-card>
+
+  <div class="closebuttoncontainer" *ngIf="isDialogmode">
+      <button class="closebutton" mat-flat-button color="warn" (click)="close()">Close</button>
+  </div>
+  
+  <div class='app-calendar'>
+    <full-calendar
+      #calendar
+      defaultView="dayGridMonth"
+      [contentHeight]="700"
+      [editable]="false"
+      [plugins]="calendarPlugins"
+      [events]="calendarEvents"
+      [timeZone]="local"
+      [header]="{
+        left: 'prev,next today',
+        center: 'title',
+        right: 'dayGridMonth,timeGridWeek,timeGridDay,listWeek'
+      }"
+      (dateClick)="handleDateClick($event)"
+      (eventClick)="handleEventClick($event)"
+      (eventResizeStop)="eventResizeStop($event)"
+    ></full-calendar>
+
+  <div class="calendar-legend">
+    <ul class="legend">
+      <li><span class="requested"></span> Requested</li>
+      <li><span class="tentative"></span> Tentative</li>
+      <li><span class="approved"></span> Approved</li>
+      <li><span class="completed"></span> Completed</li>
+      <li><span class="cancelled"></span> Cancelled</li>
+      <li><span class="shutdown"></span> Shutdown</li>
+    </ul>
+  </div>
+
+  </div>
+
+</mat-card>

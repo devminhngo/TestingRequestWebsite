@@ -1,0 +1,202 @@
+<mat-card>
+  <div class="workrequest-header">
+    <mat-card-title>Create New Work Order Request</mat-card-title>
+  </div>
+  <mat-vertical-stepper #stepper>
+
+    <mat-step [stepControl]="firstFormGroup" errorMessage="You must complete all required fields.">
+      <form [formGroup]="firstFormGroup">
+        <ng-template matStepLabel>Enter Information</ng-template>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Test Location: </mat-label>
+          <mat-select formControlName="testlocation" required>
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let location of testlocations" value="{{location}}">
+              {{location}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <mat-divider [inset]="true"></mat-divider>
+
+        <mat-form-field appearance="outline">
+          <mat-label>Requestor: </mat-label>
+          <mat-select formControlName="requestor" required>
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let requestors of requestors" value="{{requestors}}">
+              {{requestors}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Request - Driver: </mat-label>
+          <mat-select formControlName="driver" required>
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let drivers of requestdrivers" value="{{drivers}}">
+              {{drivers}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Charge Code: </mat-label>
+          <mat-select formControlName="chargecode" required>
+            <mat-option>None</mat-option>
+            <mat-option *ngFor="let code of chargecodes" value="{{code}}">
+              {{code}}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Request Description: </mat-label>
+          <textarea matInput formControlName="description" required></textarea>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+          <mat-label>Comments: </mat-label>
+          <textarea matInput formControlName="requestcomments"></textarea>
+        </mat-form-field>
+
+        <div>
+          <button mat-flat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step [stepControl]="secondFormGroup" errorMessage="You must complete all required fields.">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Add Task(s)</ng-template>
+
+
+        <div formArrayName="tasksarray">
+          <div *ngFor="let item of tasksArray.controls; let pointIndex=index" [formGroupName]="pointIndex">
+
+            <div class="task-header">Task {{pointIndex + 1}}:</div>
+            <mat-form-field appearance="outline">
+              <mat-label>Tool: </mat-label>
+              <mat-select formControlName="tool" required>
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let tools of tools" value="{{tools}}">
+                  {{tools}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Resource: </mat-label>
+              <mat-select formControlName="resource" required>
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let resources of resources" value="{{resources}}">
+                  {{resources}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <h5>Start Time</h5>
+            <div class="timePicker" formGroupName="selectedStartTime">
+              <mat-form-field class="hour" appearance="outline">
+                <mat-select placeholder="Hour" formControlName="hour">
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let hour of hourValues" [value]="hour">
+                    {{hour}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field class="minutes" appearance="outline">
+                <mat-select placeholder="Minute" formControlName="minute">
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let minute of minuteValues" [value]="minute">
+                    {{minute}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+              <mat-form-field appearance="outline">
+                <mat-select placeholder="Period" formControlName="period">
+                  <mat-option>None</mat-option>
+                  <mat-option *ngFor="let period of periodValues" [value]="period">
+                    {{period}}
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
+            </div>
+            <mat-form-field appearance="outline">
+              <mat-label>Duration (hours): </mat-label>
+              <input matInput type="number" formControlName="duration" required>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Chosen Start Date & Time </mat-label>
+              <button style="width: 20%;" mat-flat-button color="warning" (click)="openDialog(pointIndex);">Add to Calendar</button>
+              <input style="width: 60%; padding: 10px" type="datetime-local" name="selectedStartDate" matInput formControlName="startdate" [readonly]="true">
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Test Contact: </mat-label>
+              <mat-select formControlName="testContact" required>
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let testContacts of testContacts" value="{{testContacts}}">
+                  {{testContacts}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Priority: </mat-label>
+              <mat-select formControlName="priority" required>
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let priority of priorities" value={{priority}}>
+                  {{ priority }}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>PSL/Company: </mat-label>
+              <mat-select formControlName="companyPSL" required>
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let pslCompanies of pslcompanies" value="{{pslCompanies}}">
+                  {{pslCompanies}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <mat-form-field appearance="outline">
+              <mat-label>Group: </mat-label>
+              <mat-select formControlName="group" required>
+                <mat-option>None</mat-option>
+                <mat-option *ngFor="let group of groups" value={{group}}>
+                  {{group}}
+                </mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div style="padding-bottom: 20px; padding-left: 10px;">
+              <mat-label>PSL Participation: </mat-label>
+              <mat-checkbox formControlName="PSLParticipation" required></mat-checkbox><br>
+            </div>
+            <mat-form-field appearance="outline">
+              <mat-label>Test Description: </mat-label>
+              <textarea matInput formControlName="testDescription" required></textarea>
+            </mat-form-field>
+            <!--<label for="file">Choose File</label>
+            <input type="file" id="file"(change)="handleFileInput($event.target.files)"><br><br>-->
+            <br><br>
+            <button mat-flat-button class="deletebutton" (click)="deleteTask(pointIndex);this.fileUploader.removeFileDoc(pointIndex);">Delete Task</button>
+            <div class="clicktoadd">
+              <input type="file" id="file" (change)="this.fileUploader.handleFileInput($event.target.files);this.fileUploader.addFileDoc(pointIndex);" multiple><br><br>
+              <!--<button (click)="uploadFileToActivity();">+ Click to Add File</button>-->
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <button mat-flat-button class="addsavebutton" (click)="addTask()">Add Task</button>
+          <button mat-flat-button matStepperPrevious>Back</button>
+          <button mat-flat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+
+    <mat-step>
+      <ng-template matStepLabel>Submit for Approval</ng-template>
+      <div class="approvalbuttons">
+        <button mat-flat-button class="addsavebutton">Save as Draft</button>
+        <button mat-flat-button class="addsavebutton" (click)="submitRequest();">Submit for Approval</button>
+        <button mat-flat-button matStepperPrevious>Back</button>
+        <button mat-flat-button (click)="stepper.reset(); resetTasks();">Reset</button>
+      </div>
+    </mat-step>
+
+  </mat-vertical-stepper>
+</mat-card>

@@ -1,0 +1,164 @@
+<div *ngIf="viewbackbutton">
+    <button mat-flat-button color="warn" (click)="goBack()">Back</button>
+    <br><br>
+</div>
+<mat-card>
+  <div class="task-header">
+    <mat-card-title>Information for {{ task.id }} ({{ task.status }})</mat-card-title>
+    </div>
+    <mat-expansion-panel class="noshadow" [expanded]="true">
+
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+            Test Information
+        </mat-panel-title>
+      </mat-expansion-panel-header>
+      <div>
+            <table>
+                <tr>
+                    <td width="25%">Work Request Number:</td>
+                    <td><a [routerLink]="['/viewworkrequest', task.WorkRequestId]" routerLinkActive="router-link-active">{{ task.WorkRequestId }}</a></td>
+                </tr>
+                <tr>
+                    <td width="25%">Work Request Description:</td>
+                    <td>{{ workRequest.description }}</td>
+                </tr>
+                <tr>
+                    <td width="25%">Work Requestor/Owner:</td>
+                    <td>{{ workRequest.requestor }}</td>
+                </tr>
+            </table>
+            <br>
+            <table>
+                    <tr>
+                        <td width="25%">Status:</td>
+                        <td>{{ task.status }}</td>
+                    </tr>
+                    <tr>
+                        <td width="25%">Tool:</td>
+                        <td>{{ task.tool }}</td> 
+                    </tr>
+                    <tr>
+                        <td width="25%">Test Description:</td>
+                        <td>{{ task.testDescription }}</td> 
+                    </tr>
+                    <tr>
+                        <td width="25%">Primary Test Contact:</td>
+                        <td>{{ task.testContact }}</td> 
+                    </tr>
+                    <tr>
+                        <td width="25%">Location:</td>
+                        <td>{{ workRequest.testlocation }}</td>
+                    </tr>
+                    <tr>
+                        <td width="25%">Resource:</td>
+                        <td>{{ task.resource }}</td> 
+                    </tr>
+                    <tr>
+                        <td width="25%">Duration (hr):</td>
+                        <td>{{ task.duration }} hour(s)</td> 
+                    </tr>
+                    <tr>
+                        <td width="25%">Priority:</td>
+                        <td>{{ task.priority }}</td> 
+                    </tr>
+                    <tr>
+                        <td width="25%">PSL Participation:</td>
+                        <td>{{ task.PSLParticipation }}</td> 
+                    </tr>
+            </table>
+            <br>
+            <table>
+                    <tr>
+                        <td width="25%">Modify Test Information</td>
+                        <td><a href="\task" target="_blank">Modify Test Details</a></td> 
+                    </tr>
+            </table>
+            <hr>
+            <mat-expansion-panel class="noshadow" [expanded]="false">
+                    <mat-expansion-panel-header style="padding-left: 8px;">
+                        <mat-panel-title style="font-weight: 500;">
+                            Click here to view data.
+                        </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <app-real-time-data-graph></app-real-time-data-graph>
+            </mat-expansion-panel>
+            <hr>
+      </div>
+    </mat-expansion-panel>
+
+    <mat-divider [inset]="true"></mat-divider>
+
+    <mat-expansion-panel class="noshadow" [expanded]="true">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+            Files
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <app-file-upload></app-file-upload>
+    </mat-expansion-panel>
+
+    <mat-divider [inset]="true"></mat-divider>
+
+
+    <mat-expansion-panel class="noshadow" [expanded]="true">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+            Links
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>None Found.</div>
+        <div class="clicktoadd"><a href="/task" target="_blank">+ Click to Add Link</a></div>
+    </mat-expansion-panel>
+
+    <mat-divider [inset]="true"></mat-divider>
+
+    <mat-expansion-panel class="noshadow" [expanded]="true">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+            Contacts
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>
+            <table>
+                    <tr>
+                        <td width="15%">hb81050</td>
+                        <td width="20%">Sheldon Kryger</td>
+                        <td width="45%"><a href="mailto:Sheldon_Kryger@haliburton.com">Sheldon_Kryger@haliburton.com</a></td>
+                        <td width="20%">+17809791269</td>
+                    </tr>
+                </table>
+        </div>
+        <div class="clicktoadd"><a href="/task" target="_blank">+ Click to Add Contact</a></div>
+    </mat-expansion-panel>
+
+    <mat-divider [inset]="true"></mat-divider>
+
+    <mat-expansion-panel class="noshadow" [expanded]="true">
+        <mat-expansion-panel-header>
+            <mat-panel-title>
+            Log Entries
+            </mat-panel-title>
+        </mat-expansion-panel-header>
+        <div>             
+            <table>
+                <tr>
+                    <th width="33%">Timestamp</th>
+                    <th width="33%">Username</th> 
+                    <th width="33%">LogEntry</th>
+                </tr>
+                <tr>
+                    <td>8:45 AM 02/01/2013</td>
+                    <td>Sheldon Kryger</td> 
+                    <td>Task Created</td> 
+                </tr>
+                <tr>
+                    <td>8:45 AM 02/01/2013</td>
+                    <td>Sheldon Kryger</td> 
+                    <td>Task Status changed to 'Submitted'</td> 
+                </tr>
+        </table>
+    </div>
+    <div class="clicktoadd"><a href="/task" target="_blank">+ Click to Add Log Entry</a></div>
+    </mat-expansion-panel>
+</mat-card>

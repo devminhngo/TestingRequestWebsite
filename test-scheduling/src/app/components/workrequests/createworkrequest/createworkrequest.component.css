@@ -1,0 +1,91 @@
+mat-panel-title {
+  font-weight: bold;
+}
+
+mat-card-title {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+mat-form-field{
+  width: 100%;
+}
+
+
+mat-divider{
+  border-color: #ddd;
+  padding-bottom: 20px;
+}
+
+mat-label{
+  color: #66615B;
+}
+
+button {
+  background-color: #ff3636;
+  color: #fff;
+  width: 100px;
+  margin-right: 10px;
+}
+
+.mat-card{
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
+}
+
+.workrequest-header{
+	background-color: #FF3636;
+	color: #fff;
+	padding: 20px;
+}
+
+.task-header{
+  background-color: #ddd;
+	color: #000;
+  padding: 10px;
+  margin-bottom: 10px;
+  margin-top: 10px; 
+  font-weight: 500;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected {
+  background-color: #FF3636; 
+}
+
+::ng-deep .mat-step-header .mat-step-icon-state-edit{
+  background-color: #FF3636; 
+}
+
+.addsavebutton {
+  background-color: #ddd;
+  color: #000;
+  margin-bottom: 10px;
+  width: 210px;
+}
+
+.deletebutton {
+  background-color: red;
+  color: #fff;
+  margin-bottom: 10px;
+  width: 210px;
+}
+
+.approvalbuttons {
+  margin-top: 10px;
+}
+
+.timePicker {
+  width: 100%;
+}
+
+.timePicker mat-form-field {
+  /* Make each input field take 30% of the width. */
+  width: 32%;
+}
+
+.timePicker .hour {
+  margin-right: 2%;
+}
+
+.timePicker .minutes {
+  margin-right: 2%;
+}

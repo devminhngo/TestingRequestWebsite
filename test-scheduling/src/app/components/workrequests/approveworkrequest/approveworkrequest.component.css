@@ -1,0 +1,261 @@
+mat-card-title {
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.workrequest-header{
+	background-color: #FF3636;
+	color: #fff;
+	padding: 20px;
+}
+
+.main-div{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title{
+  width: 100%;
+  justify-content: center;
+}
+
+.WorkRequestCard{
+  width: 600px;
+  justify-content: center;
+}
+
+.taskTitle{
+  text-align: center;
+  text-decoration: #2196F3;
+  font-weight: 500;
+}
+
+.approveBtn{
+  text-align: center;
+  text-decoration: #2196F3;
+  font-weight: 500;
+}
+
+mat-divider{
+  border-width: thin;
+  border-color: dodgerblue;
+}
+
+.mat-card{
+  box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
+}
+
+table{
+  width: 100%;
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+tr.detail-row {
+  height: 0;
+}
+
+
+tr.element-row:not(.example-expanded-row):hover {
+  background: #f5f5f5;
+}
+
+tr.element-row:not(.example-expanded-row):active {
+  background: #efefef;
+}
+
+.element-row td {
+  border-bottom-width: 0;
+}
+
+.detail {
+  overflow: hidden;
+}
+
+.request-id-header {
+  margin-left: 15px;
+}
+
+.description {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.tasks {
+  margin-bottom: 10px;
+  width: 100%;
+}
+
+.description-attribution {
+  opacity: 0.8;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+.button-row{
+  margin-top: 10px;
+}
+
+.viewbutton{
+  display: block;
+  background-color: #FF9136;
+  color: #fff;
+  width: 100%;
+  max-width: 120px;
+  float: right
+}
+
+.deny-button{
+  text-align: center;
+  color: #FF3636;
+}
+
+.truncate {
+  width: 250px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.mat-column-requestor {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 20% !important;
+  width: 20% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-testlocation {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 15% !important;
+  width: 15% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  text-align: center;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-tool {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 10% !important;
+  width: 10% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+  text-align: center;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-chargecode {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 10% !important;
+  width: 10% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  text-align: center;
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-taskamount {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 10% !important;
+  width: 10% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  text-align: center;
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-createdAt {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 22% !important;
+  width: 22% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.mat-column-view {
+  word-wrap: break-word !important;
+  white-space: unset !important;
+  flex: 0 0 13% !important;
+  width: 13% !important;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  word-break: break-word;
+
+  -ms-hyphens: auto;
+  -moz-hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphens: auto;
+}
+
+.expandedtablecontainer {
+  padding-bottom: 20px;
+}
+
+.expandedtablecontainer #expandedtable{
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#expandedtable td, th {
+  text-align: left;
+  padding: 8px;
+  border-bottom: 1px solid #ddd;
+  border-top: 1px solid #ddd;
+}
+
+#expandedtable tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}
+
+#expandedtablebold {
+  font-weight: bold;
+  color: rgba(0,0,0,.54);
+}
+
+.mat-header-cell {
+  font-weight: bold;
+  font-size: 14px;
+}

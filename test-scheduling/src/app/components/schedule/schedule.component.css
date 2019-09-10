@@ -1,0 +1,34 @@
+.mat-card{
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
+    height: inherit;
+    max-width: 90vw;
+}
+
+.app-calendar {
+}
+
+.calendar-legend {
+    text-align: center;
+}
+
+.closebuttoncontainer{
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: right;
+}
+
+
+/* basic positioning */
+.legend { list-style: none; display: inline-block; }
+.legend li { float: left; margin-right: 10px; }
+.legend span { border: 1px solid #ccc; float: left; width: 12px; height: 12px; margin: 2px; }
+
+/* your colors */
+.legend .requested { background-color: #3F51B5; }
+.legend .tentative { background-color: #CD2B87; }
+.legend .approved { background-color: #FF9136; }
+.legend .completed { background-color: #000000; }
+.legend .cancelled { background-color: #aaa; }
+.legend .shutdown { background-color: #FF3636; }
+
+

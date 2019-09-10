@@ -1,0 +1,58 @@
+.container {
+    width: 100%;  
+    min-height: 100vh;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
+    background-color: #FF3636;
+}
+
+mat-card-title {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    padding-top: 15px;
+}
+
+.mat-card{
+    box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
+    margin-top: -175px;
+    height: 300px;
+    width: 390px;
+}
+
+h2{
+    color: #FF3636;
+    font-weight: bold;
+}
+
+.login-form {
+    position: absolute;
+    right: 0;
+    bottom: 50px;
+    left: 0;
+    padding: 1rem;
+}
+
+.login-full-width {
+    width: 100%;
+}
+
+.submit-button {
+    background-color: #ddd;
+    width: 100%;
+}
+
+.bottom {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 1rem;
+}

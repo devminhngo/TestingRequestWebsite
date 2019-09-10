@@ -1,0 +1,100 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav
+    #drawer class="sidenav"
+    fixedInViewport="false"
+    [attr.role]="isHandset ? 'dialog' : 'navigation'"
+    [ngStyle]="{ 'width.px' : sidenavwidth }"
+    [@openCloseSidenav]="isOpen ? 'open' : 'closed'" mode="side" opened role="navigation">
+    <!--
+    [mode]="(isHandset | async)!.matches ? 'over' : 'side'"
+    [opened]="!(isHandset | async)!.matches"
+    -->
+    <mat-list>
+      <mat-list-item>
+        <mat-icon mat-list-icon >account_circle</mat-icon>
+        <p *ngIf="isOpen">{{ loginService.getUserName() }}</p>
+        </mat-list-item>
+    </mat-list>
+
+    <mat-divider></mat-divider>
+
+    <mat-nav-list >
+
+        <mat-list-item style="cursor: pointer" routerLink="/" (click)="closesubmenus()">
+          <mat-icon mat-list-icon>home</mat-icon>
+          <p *ngIf="isOpen">Home</p>
+        </mat-list-item>
+
+        <mat-list-item style="cursor: pointer" routerLink="/search" (click)="closesubmenus()">
+          <mat-icon mat-list-icon>search</mat-icon>
+          <p *ngIf="isOpen">Search</p>
+        </mat-list-item>
+
+        <mat-list-item style="cursor: pointer" (click)="toggleWorkRequestSubMenu()">
+          <mat-icon mat-list-icon>assignment</mat-icon>
+          <p *ngIf="isOpen">Work Requests</p>
+          <button mat-button mat-icon-button *ngIf="isOpen">
+              <mat-icon class="menu-button" [ngClass]="{'rotated' : showWorkRequestSubMenu}">expand_more</mat-icon>
+          </button>
+        </mat-list-item>
+        <div class="submenu" [ngClass]="{'expanded' : showWorkRequestSubMenu}" *ngIf="isOpen">
+            <mat-list-item class="submenu-items" routerLink="/createworkrequest" routerLinkActive="active-list-item">
+              <!--<mat-icon mat-list-icon>create</mat-icon>-->
+              Create Work Request</mat-list-item>
+            <!--<mat-list-item class="submenu-items" routerLink="/viewworkrequest" routerLinkActive="active-list-item">
+              <mat-icon mat-list-icon>view_list</mat-icon>
+              View Work Request</mat-list-item>-->
+        </div>
+
+        <mat-list-item style="cursor: pointer" routerLink="/schedule" (click)="closesubmenus()">
+          <mat-icon mat-list-icon>today</mat-icon>
+          <p *ngIf="isOpen">Schedule</p>
+        </mat-list-item>
+
+        <mat-list-item *ngIf="loginService.isAdmin()" style="cursor: pointer" routerLink="/adminpanel" (click)="closesubmenus()" >
+          <mat-icon mat-list-icon>supervisor_account</mat-icon>
+          <p *ngIf="isOpen">Admin Panel</p>
+        </mat-list-item>
+
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content [@openCloseSidenavContent]="isOpen ? 'open' : 'closed'">
+    <mat-toolbar>
+      <button type="button" aria-label="Toggle Sidenav" mat-icon-button (click)="toggle()">
+        <mat-icon class="mat-icon-toolbar" aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span class="spacer"></span>
+
+      <!-- <button type="button" aria-label="View Notifications" mat-icon-button> -->
+      <button mat-button [matMenuTriggerFor] = "notifications">
+        <mat-icon class="mat-icon-toolbar">notifications</mat-icon>
+      </button>
+
+
+      <mat-menu class="mat-menu-panel" #notifications="matMenu">
+          <mat-list dense>
+            <h3 mat-subheader>Notifications</h3>
+            <mat-list-item class = "mat-list-item-2" *ngFor="let menu of menus">
+
+              <mat-icon class ="mat-icon-2" mat-list-icon>info</mat-icon>
+              <h4 mat-line>{{menu.status}}</h4>
+              <p mat-line> {{menu.message}} </p>
+              <mat-divider class ="mat-divider-2" inset="true"></mat-divider>
+            </mat-list-item>
+          </mat-list>
+      </mat-menu>
+
+
+      <button type="button" aria-label="Logout" mat-icon-button routerLink="/logout" routerLinkActive="active-list-item">
+        <mat-icon class="mat-icon-toolbar">logout</mat-icon>
+      </button>
+    </mat-toolbar>
+
+    <div class="content-container">
+        <router-outlet></router-outlet>
+        <app-notifications></app-notifications>
+    </div>
+
+  </mat-sidenav-content>
+</mat-sidenav-container>

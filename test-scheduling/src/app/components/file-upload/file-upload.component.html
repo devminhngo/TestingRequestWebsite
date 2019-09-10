@@ -1,0 +1,23 @@
+<!-- NEEDS TO BE FUNCTIONAL, SHOW THE FILES ATTACHED TO THE TASK WITH NGFOR AND TABLE-->
+<div>
+    <table>
+        <thead>    
+            <tr>
+                <th width="47%">File Name</th> 
+                <th width="6%">Del</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let file of taskFileList">
+                <td (click)="downloadFile(file.filename)" id="file"><p>{{file.filename}}</p></td>
+                <td><a href="\delete" target="_blank"><mat-icon mat-list-icon>delete_forever</mat-icon></a></td> 
+            </tr>
+        </tbody>
+            
+    </table>
+</div>
+
+<div class="clicktoadd">
+  <input type="file" id="file" (change)="handleFileInput($event.target.files)" multiple>
+  <button (click)="uploadFileToActivity();">+ Click to Add File</button>
+</div>

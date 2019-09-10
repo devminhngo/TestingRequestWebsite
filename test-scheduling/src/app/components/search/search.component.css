@@ -1,0 +1,38 @@
+.mat-card{
+	box-shadow: 0 1px 4px 0 rgba(0,0,0,.14);
+}
+
+.mat-form-field {
+  font-size: 14px;
+  width: 100%;
+}
+
+.searchHeader {
+  background-color: #FF3636;
+  color: #fff;
+  padding: 15px;
+}
+
+.resultContainer {
+  max-height: 400px;
+  overflow: auto;
+}
+
+table{
+  width: 100%;
+}
+
+.mat-row:hover {
+  background-color: #cccccc;
+}
+
+.mat-header-row{
+  position: sticky;
+  top: 0;
+  background-color: inherit;
+}
+
+.mat-card-header {
+  width: 100%;
+  text-align: center;
+}
