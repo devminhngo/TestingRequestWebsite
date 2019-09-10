@@ -1,0 +1,27 @@
+# This Docker-Compose file will be used to deploy our stack. Essentially,
+# it will make it so that you only have to run three commands to deploy the stack.
+# This is a lot easier to manage than building images for each part of the application.
+version: "3.7"
+services:
+    mongo:
+        image: "oatovar92/galileo:latest"
+        networks:
+         - backend
+        ports:
+         - "27017:27017"
+    angular:
+        image: "oatovar92/juniper:latest"
+        networks:
+         - frontend
+        ports:
+         - "4200:80"
+    api:
+        image: "oatovar92/casper:latest"
+        networks:
+         - frontend
+         - backend
+        ports:
+         - "3030:3030"
+networks:
+    frontend:
+    backend:
