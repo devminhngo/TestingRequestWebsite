@@ -1,0 +1,1 @@
+{"options":{"validator":{"requestor":{"$type":2},"chargecode":{"$type":16},"description":{"$type":2},"tool":{"$type":2},"tasks":{"$exists":true}},"validationLevel":"strict","validationAction":"error"},"indexes":[{"v":2,"key":{"_id":1},"name":"_id_","ns":"testscheduling.requests"}],"uuid":"4da162e551ac46d8bd81fd71ccfe9f45"}
