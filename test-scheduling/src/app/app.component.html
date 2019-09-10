@@ -1,0 +1,6 @@
+<div style="height: 100%" *ngIf="loginService.isUserLoggedIn()">
+    <app-navigation></app-navigation>
+</div>
+<div style="height: 100%" *ngIf="!loginService.isUserLoggedIn()">
+    <app-login></app-login>
+</div>
