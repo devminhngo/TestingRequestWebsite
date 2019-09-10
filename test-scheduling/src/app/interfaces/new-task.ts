@@ -1,0 +1,15 @@
+export interface NewTask {
+    taskid?: String,
+    tool: String,
+    resource: String,
+    duration: String,
+    testcontact: String,
+    priority: String,
+    companypsl: String,
+    group: String,
+    pslparticipation: Boolean,
+    testdescription: String,
+    startdate: Date,
+    enddate: Date,
+    status?: String,
+}
