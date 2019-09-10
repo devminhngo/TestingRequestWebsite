@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+@import '~@fullcalendar/core/main.css';
+@import '~@fullcalendar/daygrid/main.css';
+@import '~@fullcalendar/timegrid/main.css';
+
+html, body { 
+    height: 100%;
+    
+}
+body { 
+    margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif;
+    
+}
+.mat-drawer-container{
+    background-color:#f5f5f5;
+    color:rgba(0,0,0,.87);
+}
+
+.fc-day-grid-event .fc-content {
+	cursor: pointer; /* makes normal events look "clickable" */
+    white-space: normal; /* makes the events more than one line tall when too big, change to white-space: none; for 1 line events*/
+}
