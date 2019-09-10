@@ -1,0 +1,15 @@
+{
+  "name": "ldap",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\""
+  },
+  "author": "Oscar Tovar <oscar.alberto.tovar@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "ldapts": "^1.4.2"
+  }
+}
