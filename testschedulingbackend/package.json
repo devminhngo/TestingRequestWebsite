@@ -52,7 +52,7 @@
     "mongodb": "^3.2.3",
     "mongodb-core": "^3.2.3",
     "multer": "^1.4.1",
-    "node-forge": "^0.8.2",
+    "node-forge": "^1.0.0",
     "passport-custom": "^1.0.5",
     "serve-favicon": "^2.5.0",
     "uniqid": "^5.0.3",
