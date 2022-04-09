@@ -48,7 +48,7 @@
     "fs-blob-store": "^5.2.1",
     "helmet": "^3.16.0",
     "ldapts": "^1.4.2",
-    "moment": "^2.24.0",
+    "moment": "^2.29.2",
     "mongodb": "^3.2.3",
     "mongodb-core": "^3.2.3",
     "multer": "^1.4.1",
